@@ -4,7 +4,7 @@
     <div class="caption">
       <p class="lead"><%= @photo.caption %></p>
       <p>
-        <%= link_to "/photos/#{@photo.id}", { :class => "btn btn-primary" } do %>
+        <%= link_to photo_path(@photo.id),  :class => "btn btn-primary"  do %>
           <i class="fa fa-search-plus"></i>
         <% end %>
 
@@ -13,11 +13,11 @@
         </a>
 
         <!-- Make this edit link work -->
-        <%= link_to "/photos/#{@photo.id}/edit", { :class => 'btn btn-warning' } do %>
+        <%= link_to edit_photo_path(@photo.id),  :class => 'btn btn-warning'  do %>
           <i class="fa fa-edit"></i>
         <% end %>
 
-        <%= link_to "/delete_photo/#{@photo.id}", { :class => "btn btn-danger", :data => { :confirm => "Are you sure?"} } do %>
+        <%= link_to photo_path(@photo.id), :class => "btn btn-danger", :data => { :confirm => "Are you sure?"}, :method => :delete  do %>
           <i class="fa fa-trash-o"></i>
         <% end %>
 
