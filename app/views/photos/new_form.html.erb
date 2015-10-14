@@ -1,5 +1,6 @@
 <h1>Add A New photo</h1>
-<form action="/create_photo">
+<%= form_tag "/create_photo" do %>
+<!-- <form action="/create_photo"> -->
   <div class="form-group">
     <label for="photo_caption">Caption:</label>
     <input id="photo_caption" class="form-control" type="text" name="the_caption">
@@ -11,5 +12,5 @@
   <div class="form-group">
     <input class="btn btn-default" type="submit" value="Create photo">
   </div>
-</form>
-
+<!-- </form> -->
+<% end %>
