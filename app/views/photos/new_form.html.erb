@@ -1,13 +1,22 @@
 <h1>Add A New photo</h1>
+<% if @photo.errors.present? %>
+  <ul>
+  <% @photo.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+
 <%= form_tag photos_path do %>
 <!-- <form action="/create_photo"> -->
   <div class="form-group">
     <label for="photo_caption">Caption:</label>
-    <input id="photo_caption" class="form-control" type="text" name="the_caption">
+    <input id="photo_caption" class="form-control" type="text" value="<%= @photo.caption %>" name="the_caption">
   </div>
   <div class="form-group">
     <label for="photo_image_url">Image URL:</label>
-    <input id="photo_image_url" class="form-control" type="text" name="the_source">
+    <input id="photo_image_url" class="form-control" value="<%= @photo.source %>" type="text" name="the_source">
   </div>
   <div class="form-group">
     <input class="btn btn-default" type="submit" value="Create photo">
