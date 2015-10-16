@@ -31,9 +31,11 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params['id'])
     @photo.caption = params['the_caption']
     @photo.source = params['the_source']
-    @photo.save
-
-    redirect_to "/photos/#{@photo.id}"
+    if @photo.save
+      redirect_to "/photos/#{@photo.id}"
+    else
+      render 'edit_form'
+    end
   end
 
   def index
